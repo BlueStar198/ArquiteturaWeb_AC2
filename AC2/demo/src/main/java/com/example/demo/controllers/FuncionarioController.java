@@ -16,14 +16,12 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioService funcionarioService;
 
-    // Adicionar Funcionário
     @PostMapping
     public ResponseEntity<Void> adicionar(@RequestBody FuncionarioDTO funcionarioDTO) {
         funcionarioService.adicionarFuncionario(funcionarioDTO);
         return ResponseEntity.ok().build();
     }
 
-    // Buscar projetos vinculados ao Funcionário
     @GetMapping("/{id}/projetos")
     public ResponseEntity<List<DadosFuncionarioDTO>> buscarProjetos(@PathVariable Integer id) {
         List<DadosFuncionarioDTO> projetos = funcionarioService.buscarProjetosPorFuncionario(id);

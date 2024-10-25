@@ -30,6 +30,7 @@ public class Funcionario {
 
     @ManyToOne
     @JoinColumn(name = "setor_id")
+    @JsonIgnore
     private Setor setor;
 
     @ManyToMany(mappedBy = "funcionarios")
